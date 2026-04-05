@@ -24,7 +24,7 @@ source .venv/bin/activate
 # Install required packages
 pip install python-can msgpack
 
-🎬 How to Run the Simulation
+## 🎬 How to Run the Simulation
 This simulation requires running multiple scripts in separate terminal windows (all within the same virtual environment) to represent different hardware nodes.
 
 Phase 1: Normal Operation (Classic vs. CAN FD)
