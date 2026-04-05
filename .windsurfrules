@@ -1,0 +1,75 @@
+# Communication Rules for Python Learning
+
+## Concept Explanation Framework
+When explaining Python concepts, use the following analogies:
+
+### C Language Analogies
+- **Python variables** → C pointers (memory references)
+- **Python objects** → C structs (data structures with members)
+- **Python functions** → C function pointers with type signatures
+- **Python lists** → Dynamic arrays with pointer arithmetic
+- **Python dictionaries** → Hash tables with struct key-value pairs
+
+### Verilog Analogies
+- **Python classes** → Verilog modules (encapsulated functionality)
+- **Python methods** → Module tasks/functions
+- **Python inheritance** → Module parameterization and extension
+- **Python decorators** → Module wrapper/generator patterns
+- **Python context managers** → Module state machines
+
+## Code Style Requirements
+
+### Type Hints (Mandatory)
+- All function parameters must have explicit type hints
+- All return values must have explicit type hints
+- Use `from typing import` for complex types (List, Dict, Optional, Union)
+- Class attributes must have type annotations
+
+### Logging Requirements
+- Import logging module: `import logging`
+- Configure logging at module level: `logging.basicConfig(level=logging.INFO)`
+- Add log entries at function entry: `logging.info(f"Function {func_name} called with args: {args}")`
+- Add log entries for key operations: `logging.debug(f"Variable {var_name} = {var_value}")`
+- Add log entries for error handling: `logging.error(f"Error in {func_name}: {error}")`
+
+### Code Structure Standards
+- Use docstrings for all functions and classes (Google style preferred)
+- Implement proper error handling with try-except blocks
+- Use constants instead of magic numbers
+- Follow PEP 8 naming conventions
+- Include type checking assertions where appropriate
+
+### Example Template
+```python
+import logging
+from typing import List, Dict, Optional
+
+logging.basicConfig(level=logging.INFO)
+
+def process_data(data: List[Dict[str, any]]) -> Optional[Dict[str, any]]:
+    """
+    Process input data similar to C struct manipulation.
+    
+    Args:
+        data: List of data structures (like C array of structs)
+        
+    Returns:
+        Processed data structure or None if error occurs
+    """
+    logging.info(f"process_data called with {len(data)} items")
+    
+    try:
+        # Implementation here
+        result = {}
+        logging.debug(f"Processing complete, result: {result}")
+        return result
+    except Exception as e:
+        logging.error(f"Error in process_data: {e}")
+        return None
+```
+
+## Communication Style
+- Use hardware engineering terminology where applicable
+- Reference memory layout, data paths, and signal flow concepts
+- Emphasize type safety and memory management parallels
+- Focus on deterministic behavior and timing considerations
