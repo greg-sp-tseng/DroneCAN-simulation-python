@@ -57,6 +57,6 @@ Phase 2: Chaos Engineering (Bus Jamming)
 
 Observation: As soon as the Sensor Node transmits a CAN FD frame, the Jammer panics and floods the network with high-priority dominant bits (simulated via ID 0x0000001). The Flight Controller will detect this collision and drop the corrupted frame. Terminating the Jammer script instantly restores the network, mirroring the self-healing nature of hardware CAN controllers.
 
-🧠 Engineering Takeaways
+## 🧠 Engineering Takeaways
 1. Transport vs. Physical Layer: UDP simulates packet-based transmission, but real CAN controllers operate on a bit-wise, destructive physical layer.
 2. Fault Confinement: Real CAN hardware uses Transmit/Receive Error Counters (TEC/REC) to automatically push faulty nodes into "Bus Off" states. This simulation artificially replicates that recovery behavior.
