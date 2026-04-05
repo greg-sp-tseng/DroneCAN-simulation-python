@@ -15,14 +15,14 @@ This project overcomes this limitation by utilizing `python-can`'s **UDP Multica
 ## 🛠️ Prerequisites
 
 Ensure you have Python installed, along with the required dependencies:
-
    ```bash
    # Create and activate a virtual environment (Recommended)
    python3 -m venv .venv
    source .venv/bin/activate
-   
+
    # Install required packages
    pip install python-can msgpack
+   ```
 
 ## 🎬 How to Run the Simulation
 This simulation requires running multiple scripts in separate terminal windows (all within the same virtual environment) to represent different hardware nodes.
@@ -32,12 +32,14 @@ Phase 1: Normal Operation (Classic vs. CAN FD)
 
    ```bash
    python flight_controller.py
+   ```
    Select Mode 1 (DroneCAN) or Mode 2 (CAN FD).
 
    2. Start the Sensor Node (Terminal 2):
 
    ```bash
    python sensor_node.py
+   ```
    Select the matching protocol mode to observe successful transmission and reassembly.
 
 Phase 2: Chaos Engineering (Bus Jamming)
@@ -47,10 +49,11 @@ Phase 2: Chaos Engineering (Bus Jamming)
 
    ```bash
    python legacy_gps_jammer.py
+   ```
 
-   *This node acts as an old, non-FD compliant device.*
+   *This node acts as an old, non-FD-compliant device.*
 
-   3.Start the Sensor Node (Terminal 3): Set to Mode 2 (CAN FD).
+   3. Start the Sensor Node (Terminal 3): Set to Mode 2 (CAN FD).
 
 Observation: As soon as the Sensor Node transmits a CAN FD frame, the Jammer panics and floods the network with high-priority dominant bits (simulated via ID 0x0000001). The Flight Controller will detect this collision and drop the corrupted frame. Terminating the Jammer script instantly restores the network, mirroring the self-healing nature of hardware CAN controllers.
 
