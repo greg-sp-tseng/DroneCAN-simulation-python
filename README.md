@@ -16,13 +16,13 @@ This project overcomes this limitation by utilizing `python-can`'s **UDP Multica
 
 Ensure you have Python installed, along with the required dependencies:
 
-```bash
-# Create and activate a virtual environment (Recommended)
-python3 -m venv .venv
-source .venv/bin/activate
-
-# Install required packages
-pip install python-can msgpack
+   ```bash
+   # Create and activate a virtual environment (Recommended)
+   python3 -m venv .venv
+   source .venv/bin/activate
+   
+   # Install required packages
+   pip install python-can msgpack
 
 ## 🎬 How to Run the Simulation
 This simulation requires running multiple scripts in separate terminal windows (all within the same virtual environment) to represent different hardware nodes.
